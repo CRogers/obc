@@ -1,0 +1,33 @@
+binary.cmo    : binary.cmi ../compiler/growvect.cmi ../compiler/util.cmi
+binary.cmi    : ../compiler/symtab.cmi
+control.cmo   : control.cmi procio.cmi ../compiler/print.cmi \
+		../compiler/util.cmi
+control.cmi   : binary.cmi ../compiler/symtab.cmi
+data.cmo      : data.cmi info.cmi procio.cmi ../compiler/eval.cmi \
+		../compiler/mach.cmi ../compiler/symtab.cmi \
+		../compiler/util.cmi
+data.cmi      : binary.cmi ../compiler/dict.cmi ../compiler/print.cmi
+debconf.cmo   : ../compiler/config.cmi ../compiler/print.cmi \
+		../compiler/symtab.cmi ../compiler/util.cmi
+debmain.cmo   : binary.cmi control.cmi debconf.cmo info.cmi procio.cmi \
+		sourcebook.cmi stackview.cmi varsview.cmi \
+		../compiler/config.cmi ../compiler/print.cmi \
+		../compiler/symtab.cmi
+info.cmo      : info.cmi ../compiler/config.cmi ../compiler/error.cmi \
+		../compiler/mach.cmi ../compiler/print.cmi \
+		../compiler/symfile.cmi ../compiler/util.cmi
+info.cmi      : ../compiler/dict.cmi ../compiler/symtab.cmi
+procio.cmo    : debconf.cmo procio.cmi ../compiler/util.cmi
+procio.cmi    : ../compiler/print.cmi
+sourcebook.cmo : control.cmi debconf.cmo info.cmi sourcebook.cmi \
+		../compiler/dict.cmi ../compiler/print.cmi \
+		../compiler/util.cmi
+sourcebook.cmi : binary.cmi ../compiler/symtab.cmi
+stackview.cmo : binary.cmi control.cmi data.cmi debconf.cmo stackview.cmi \
+		../compiler/print.cmi
+stackview.cmi : sourcebook.cmi varsview.cmi
+varsview.cmo  : data.cmi debconf.cmo info.cmi varsview.cmi \
+		../compiler/dict.cmi ../compiler/eval.cmi \
+		../compiler/mach.cmi ../compiler/print.cmi \
+		../compiler/util.cmi
+varsview.cmi  : binary.cmi ../compiler/symtab.cmi

@@ -1,0 +1,52 @@
+browser.cmo   : config.cmo dict.cmi eval.cmi print.cmi symfile.cmi \
+		symtab.cmi util.cmi
+check.cmo     : check.cmi config.cmo dict.cmi error.cmi eval.cmi expr.cmi \
+		growvect.cmi inicheck.cmi mach.cmi print.cmi symfile.cmi \
+		symtab.cmi util.cmi
+check.cmi     : tree.cmi
+dict.cmo      : config.cmo dict.cmi
+dict.cmi      : error.cmi eval.cmi mach.cmi print.cmi symtab.cmi
+error.cmo     : config.cmo error.cmi growvect.cmi
+error.cmi     : print.cmi
+eval.cmo      : eval.cmi
+eval.cmi      : print.cmi symtab.cmi
+expr.cmo      : config.cmo expr.cmi mach.cmi
+expr.cmi      : dict.cmi error.cmi eval.cmi print.cmi symtab.cmi tree.cmi
+growvect.cmo  : growvect.cmi
+icode.cmo     : icode.cmi
+icode.cmi     : eval.cmi print.cmi symtab.cmi
+igen.cmo      : config.cmo dict.cmi error.cmi eval.cmi icode.cmi igen.cmi \
+		mach.cmi peepopt.cmi print.cmi stack.cmi switch.cmi \
+		symtab.cmi util.cmi
+igen.cmi      : tree.cmi
+inicheck.cmo  : dict.cmi error.cmi inicheck.cmi print.cmi symtab.cmi
+inicheck.cmi  : tree.cmi
+lexer.cmo     : config.cmo error.cmi eval.cmi lexer.cmi symtab.cmi util.cmi
+lexer.cmi     : dict.cmi parser.cmi
+mach.cmo      : dict.cmi mach.cmi
+mach.cmi      : eval.cmi
+main.cmo      : check.cmi config.cmo error.cmi igen.cmi lexer.cmi parser.cmi \
+		print.cmi symfile.cmi symtab.cmi tree.cmi
+parser.cmo    : dict.cmi error.cmi lexer.cmi parser.cmi print.cmi
+parser.cmi    : eval.cmi symtab.cmi tree.cmi
+peepopt.cmo   : config.cmo error.cmi eval.cmi peepopt.cmi print.cmi \
+		symtab.cmi util.cmi
+peepopt.cmi   : icode.cmi
+print.cmo     : print.cmi util.cmi
+stack.cmo     : stack.cmi symtab.cmi util.cmi
+stack.cmi     : dict.cmi icode.cmi print.cmi
+switch.cmo    : dict.cmi icode.cmi mach.cmi peepopt.cmi switch.cmi util.cmi
+switch.cmi    : eval.cmi symtab.cmi
+symfile.cmo   : config.cmo error.cmi eval.cmi mach.cmi print.cmi symfile.cmi \
+		symlex.cmi symparse.cmi symtab.cmi tree.cmi util.cmi
+symfile.cmi   : dict.cmi
+symlex.cmo    : dict.cmi print.cmi symlex.cmi symtab.cmi util.cmi
+symlex.cmi    : symparse.cmi
+symparse.cmo  : config.cmo error.cmi eval.cmi growvect.cmi mach.cmi \
+		print.cmi symparse.cmi symtab.cmi
+symparse.cmi  : dict.cmi
+symtab.cmo    : growvect.cmi symtab.cmi
+symtab.cmi    : print.cmi
+tree.cmo      : tree.cmi
+tree.cmi      : dict.cmi error.cmi eval.cmi print.cmi symtab.cmi
+util.cmo      : util.cmi
